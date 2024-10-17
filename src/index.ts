@@ -15,7 +15,9 @@ app.use(cors())
 app.use(morgan('dev'))
 
 app.use("/api", routes)
-app.listen(port, async () => {
+const server = app.listen(port, async () => {
   await initializeDB()
   console.log(`[server]: Server is running at http://localhost:${port}`);
 });
+
+export default server
