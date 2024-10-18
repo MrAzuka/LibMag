@@ -10,10 +10,7 @@ let userid: string = username || email
 let token: string
 
 
-
-
-
-describe("Registeration & Login Endpoints", () => {
+describe("Profile Endpoints", () => {
     beforeAll(async () => {
         await AppDataSource.initialize();
         await request(server).post("/api/auth/register").send({ username, email, password })
@@ -35,7 +32,7 @@ describe("Registeration & Login Endpoints", () => {
     test("Update User Profile", async () => {
         const res = await request(server)
             .put("/api/profile")
-            .send({first_name: "First Test", last_name: "Last Test"})
+            .send({ first_name: "First Test", last_name: "Last Test" })
             .set("Authorization", `Bearer ${token}`);
 
         expect(res.statusCode).toBe(200);
@@ -46,7 +43,7 @@ describe("Registeration & Login Endpoints", () => {
     test("Can't Update User Password", async () => {
         const res = await request(server)
             .put("/api/profile")
-            .send({password: "First Test"})
+            .send({ password: "First Test" })
             .set("Authorization", `Bearer ${token}`);
 
         expect(res.statusCode).toBe(400);
