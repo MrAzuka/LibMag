@@ -10,7 +10,7 @@
     "typeorm": "typeorm-ts-node-commonjs",
     "migration:run": "npx typeorm-ts-node-commonjs migration:run -d ./src/data-source.ts",
     "populate": "ts-node ./src/commands/populate.ts",
-    "test": "jest --selectProjects=unit-test --detectOpenHandles"
+    "test": "jest --selectProjects=unit-test --runInBand"
   },
   "repository": {
     "type": "git",

@@ -65,7 +65,7 @@ export const UserLogin = async (req: Request, res: Response) => {
         if (!isUserExists) { return res.status(400).json({ success: false, message: "User does not exist." }); }
 
         // password match check
-        const isHashedPassword = bcrypt.compare(password, isUserExists.password)
+        const isHashedPassword = await bcrypt.compare(password, isUserExists.password)
 
         if (!isHashedPassword) { return res.status(400).json({ success: false, message: "wrong password or userid" }) }
 

@@ -19,7 +19,7 @@ export const newMockUser = async() => {
     let hashedPassword: string = await bcrypt.hash("password", salt)
     let data: IUser = {username: "Test",
     email: "test@test.com",
-    password: "testpassword",
+    password: hashedPassword,
     sign_up_date: new Date()
 }
 
@@ -39,14 +39,3 @@ export const deleteMockUser = async(email: string) => {
      console.log(error)
     }
  }
-
- // beforeAll(async () => {
-//     let data = await newMockUser()
-//     if (data) {
-//         username = data.username;
-//         email = data.email;
-//     } else {
-//         console.error("Failed to create mock user.");
-//     }
-    
-// })
