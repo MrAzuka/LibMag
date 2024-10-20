@@ -42,6 +42,12 @@ a comprehensive library management system
   npm run dev
 ```
 
+## Run test
+- Run the test files
+
+```bash
+  npm run test
+```
 ## Contact
 
 - LinkedIn: [MrAzuka](https://linkedin.com/in/olisemelie-azuka)
